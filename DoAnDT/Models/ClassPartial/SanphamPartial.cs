@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DoAnDT.Models
+namespace EC_TH2012_J.Models
 {
     [MetadataTypeAttribute(typeof(SanphamPartial.Metadata))]
     public partial class SanphamPartial

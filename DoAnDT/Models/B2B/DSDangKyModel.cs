@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DoAnDT.Models.B2B
+namespace EC_TH2012_J.Models.B2B
 {
     public class DSDangKyModel
     {
-        private DBDTConnect db = new DBDTConnect();
+        private Entities db = new Entities();
 
 
         internal IQueryable<DanhsachdangkisanphamNCC> TimDS(string tensp, string tenncc, int? tt)

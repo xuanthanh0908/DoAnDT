@@ -290,10 +290,20 @@
     <Compile Include="Controllers\GiaoDienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SideBarController.cs" />
     <Compile Include="Controllers\XuligiohangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\B2B\Classsupport.cs" />
+    <Compile Include="Models\B2B\DangkisanphamModel.cs" />
+    <Compile Include="Models\B2B\DoitacModel.cs" />
+    <Compile Include="Models\B2B\DSDangKyModel.cs" />
+    <Compile Include="Models\B2B\HopdongNCCModel.cs" />
+    <Compile Include="Models\B2B\NhaCungCapModel.cs" />
+    <Compile Include="Models\B2B\SanPhamCanMuaAdd.cs" />
+    <Compile Include="Models\B2B\SanphamcanmuaModel.cs" />
+    <Compile Include="Models\ClassPartial\SanphamPartial.cs" />
     <Compile Include="Models\Common\AccountViewModels.cs" />
     <Compile Include="Models\Common\CategoryModel.cs" />
     <Compile Include="Models\Common\Chitietgiohang.cs" />
