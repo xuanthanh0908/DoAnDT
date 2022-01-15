@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace EC_TH2012_J.Models
+namespace DoAnDT.Models
 {
     public class Classsupport
     {
