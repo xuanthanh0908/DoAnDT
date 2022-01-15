@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EC_TH2012_J.Models
+namespace DoAnDT.Models
 {
     public class HopdongNCCModel
     {
         public List<NhaCungCap> getDsNhaCC()
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 var temp = (from p in db.NhaCungCaps select p).ToList();
                 return temp;
@@ -17,7 +17,7 @@ namespace EC_TH2012_J.Models
         }
         public List<DropdownSanpham> getDsSanPham()
         {
-            using (Entities db = new Entities())
+            using (DBDTConnect db = new DBDTConnect())
             {
                 var temp = (from p in db.SanPhams select new DropdownSanpham() { ID = p.MaSP, TenSP = p.TenSP }).ToList();
                 return temp;
@@ -25,7 +25,7 @@ namespace EC_TH2012_J.Models
         }
         public string ThemmoiHopDongNCC(HopDongNCC a)
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 try
                 {
@@ -41,7 +41,7 @@ namespace EC_TH2012_J.Models
                 }
             }
         }
-        private string TaoMa(Entities db)
+        private string TaoMa(DBDTConnect db)
         {
             string maID;
             Random rand = new Random();
@@ -57,7 +57,7 @@ namespace EC_TH2012_J.Models
             return maID;
         }
 
-        private bool KiemtraID(string maID,Entities db)
+        private bool KiemtraID(string maID,DBDTConnect db)
         {
             var temp = db.HopDongNCCs.Find(maID);
             if (temp == null)
@@ -66,7 +66,7 @@ namespace EC_TH2012_J.Models
         }
         public List<MaHD> getMaHD(string IDdoitac)
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 var ds = (from p in db.HopDongNCCs where p.MaNCC == IDdoitac select new MaHD() { Mahd = p.MaHD }).ToList();
                 return ds;
@@ -74,7 +74,7 @@ namespace EC_TH2012_J.Models
         }
         public string GetMaSP(string MaHD)
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 var temp = (from p in db.HopDongNCCs where p.MaHD == MaHD select new { Masp = p.MaSP }).FirstOrDefault();
                 return temp.Masp;
@@ -82,7 +82,7 @@ namespace EC_TH2012_J.Models
         }
         public bool SetTTThanhtoan(string MaHD,bool value)
         {
-            using (Entities db = new Entities())
+            using (DBDTConnect db = new DBDTConnect())
             {
                 try
                 {
@@ -99,7 +99,7 @@ namespace EC_TH2012_J.Models
         }
         public bool SetTTGiaohang(string MaHD, bool value)
         {
-            using (Entities db = new Entities())
+            using (DBDTConnect db = new DBDTConnect())
             {
                 try
                 {

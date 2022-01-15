@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace EC_TH2012_J.Models
+namespace DoAnDT.Models
 {
     public class NhaCungCapModel
     {
-        protected Entities db = new Entities();
+        protected DBDTConnect db = new DBDTConnect();
 
 
         internal IQueryable<NhaCungCap> TimNCC(string key)

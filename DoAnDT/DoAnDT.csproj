@@ -307,6 +307,10 @@
     <Compile Include="Models\Common\AccountViewModels.cs" />
     <Compile Include="Models\Common\CategoryModel.cs" />
     <Compile Include="Models\Common\Chitietgiohang.cs" />
+    <Compile Include="Models\Common\EmailModel.cs" />
+    <Compile Include="Models\Common\HangSanXuatModel.cs" />
+    <Compile Include="Models\Common\IdentityModels.cs" />
+    <Compile Include="Models\Common\UserModel.cs" />
     <Compile Include="Models\DonHang\ChitietdonhangModel.cs" />
     <Compile Include="Models\DonHang\DonhangKHModel.cs" />
     <Compile Include="Models\DonHang\Donhangtongquan.cs" />

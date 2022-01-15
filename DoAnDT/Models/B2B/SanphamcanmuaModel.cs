@@ -4,14 +4,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace EC_TH2012_J.Models
+namespace DoAnDT.Models
 {
     public class SanphamcanmuaModel
     {
-        Entities db = new Entities();
+        DBDTConnect db = new DBDTConnect();
         public List<Sanphamcanmua> getDS(int index,int count)
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 var ds =  db.Sanphamcanmuas.OrderBy(m=>m.Ngaydang).Skip(index).Take(count).ToList();
                 return ds;
@@ -19,14 +19,14 @@ namespace EC_TH2012_J.Models
         }
         public SanPham getSP(string maSP)
         {
-            using (Entities db = new Entities())
+            using (DBDTConnect db = new DBDTConnect())
             {
                 return (from p in db.SanPhams where p.MaSP == maSP select p).FirstOrDefault();
             }
         }
         public Sanphamcanmua getSanphamcanmua(int ID)
         {
-            using(Entities db = new Entities())
+            using(DBDTConnect db = new DBDTConnect())
             {
                 Sanphamcanmua var = (from p in db.Sanphamcanmuas where p.ID == ID select p).FirstOrDefault();
                 return var;

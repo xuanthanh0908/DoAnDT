@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EC_TH2012_J.Models
+namespace DoAnDT.Models
 {
     [MetadataTypeAttribute(typeof(SanphamPartial.Metadata))]
     public partial class SanphamPartial
