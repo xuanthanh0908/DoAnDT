@@ -23,7 +23,7 @@ namespace DoAnDT.Controllers
                 Ds_Group = new List<Thanhviennhom>();
                 Ds_Group.Add(new Thanhviennhom
                 {
-                    MSSV = "19810310151",
+                    MSSV = "198103101511",
                     Hoten = "NGUYỄN XUÂN THÀNH",
                     LinkFacebook = "https://www.facebook.com/xuanthanh962742"
                 });
