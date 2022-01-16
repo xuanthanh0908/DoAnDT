@@ -1,8 +1,9 @@
 ﻿@{
-    ViewBag.Title = "ProductDetail";
+    ViewBag.Title = "Chi tiết sản phẩm";
     Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
 }
 @model DoAnDT.Models.SanPham
+
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
         $(document).on("click", "#nav a[href]", function () {
@@ -21,7 +22,6 @@
         });
     });
 </script>
-
 <div id="single-product">
     <div class="container">
         <div class="no-margin col-xs-12 col-sm-6 col-md-5 gallery-holder">
@@ -71,11 +71,9 @@
                 @*<div class="star-holder inline"><div class="star" data-score="4"></div></div>*@
                 <div class="availability">
                     <label>Tình trạng:</label> @if (@Model.SoLuong > 0)
-                    {
-                        <span class="available"> Còn hàng </span> }
+                    {<span class="available"> Còn hàng </span> }
                     else
-                    {
-                        <span class="not-available">Hết hàng</span> }
+                    {<span class="not-available">Hết hàng</span> }
                 </div>
                 <div class="title"><a href="#">@Model.TenSP</a></div>
                 <div class="brand"></div>
@@ -386,6 +384,7 @@
     </section>*@<!-- /#recently-reviewd -->
 @Html.Action("Loadsplienquan", "SanPham", new { maloai = @Model.LoaiSP, sl = 6 });
 <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
+
 <script type="text/javascript">
     $('.le-quantity a').click(function (e) {
         e.preventDefault();

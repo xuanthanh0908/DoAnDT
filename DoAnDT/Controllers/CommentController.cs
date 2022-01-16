@@ -1,17 +1,17 @@
 ﻿using DoAnDT.Models;
-using Microsoft.AspNet.Identity;
 using PagedList;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace DoAnDT.Controllers
 {
     public class CommentController : Controller
     {
-        // GET: Comment
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         public ActionResult Index()
         {

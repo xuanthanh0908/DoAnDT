@@ -1,4 +1,5 @@
 ﻿using DoAnDT.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,8 +55,8 @@ namespace DoAnDT.Controllers
             return View(temp);
         }
 
-        /*[AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]*/
-       /* public ActionResult Huydonhang(string maDH)
+        [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]
+        public ActionResult Huydonhang(string maDH)
         {
             DonhangKHModel dh = new DonhangKHModel();
             dh.HuyDH(maDH);
@@ -82,8 +83,8 @@ namespace DoAnDT.Controllers
                 return RedirectToAction("Authentication", "Account", new { returnUrl = "/Home/Checkout" });
             }
         }
-*//*
-        [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]*//*
+
+        [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]
         [HttpPost]
         public ActionResult Checkout(Donhangtongquan dh)
         {
@@ -97,7 +98,7 @@ namespace DoAnDT.Controllers
             {
                 return RedirectToAction("Checkout", "Home");
             }
-        }*/
+        }
         public ActionResult MainMenu()
         {
             MainMenuModel mnmodel = new MainMenuModel();
