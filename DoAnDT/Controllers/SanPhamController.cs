@@ -1,9 +1,11 @@
-﻿using DoAnDT.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoAnDT.Models;
+using PagedList;
+using PagedList.Mvc;
 using DoAnDT.App_Start;
 
 namespace DoAnDT.Controllers
@@ -38,10 +40,12 @@ namespace DoAnDT.Controllers
             splist = splist.Take(sl);
             return PartialView("_PartialSanPhamLienQuan", splist);
         }
+
         public ActionResult ThongSoKyThuat(string MaSP)
         {
             SanPhamModel spm = new SanPhamModel();
-            return PartialView("ThongSoKyThuatPartial", spm.GetTSKT(MaSP));
+            return PartialView("ThongSoKyThuat", spm.GetTSKT(MaSP));
         }
+
     }
 }

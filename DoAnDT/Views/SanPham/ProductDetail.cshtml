@@ -1,5 +1,7 @@
-﻿@{ ViewBag.Title = "ProductDetail";
-                Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml"; }
+﻿@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
+}
 @model DoAnDT.Models.SanPham
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
@@ -69,9 +71,11 @@
                 @*<div class="star-holder inline"><div class="star" data-score="4"></div></div>*@
                 <div class="availability">
                     <label>Tình trạng:</label> @if (@Model.SoLuong > 0)
-                    {<span class="available"> Còn hàng </span> }
+                    {
+                        <span class="available"> Còn hàng </span> }
                     else
-                    {<span class="not-available">Hết hàng</span>}
+                    {
+                        <span class="not-available">Hết hàng</span> }
                 </div>
                 <div class="title"><a href="#">@Model.TenSP</a></div>
                 <div class="brand"></div>
@@ -88,7 +92,8 @@
                     <label>Khuyến mãi:</label>
                     @if (Model.SanPhamKhuyenMais.Any())
                     {
-        <div class="text-capitalize" style="background-color: #efefef">@Html.Raw(Model.SanPhamKhuyenMais.FirstOrDefault().MoTa)</div>}
+                        <div class="text-capitalize" style="background-color: #efefef">@Html.Raw(Model.SanPhamKhuyenMais.FirstOrDefault().MoTa)</div>
+                    }
                 </div>
                 <div class="brand"></div>
                 <div class="prices">

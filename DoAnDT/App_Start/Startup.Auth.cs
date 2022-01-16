@@ -6,14 +6,13 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
 
-[assembly: OwinStartup(typeof(DoAnDT.Startup))]
 namespace DoAnDT
 {
     public partial class Startup
     {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
-        public void Configuration(IAppBuilder app)
+        public void ConfigureAuth(IAppBuilder app)
         {
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
