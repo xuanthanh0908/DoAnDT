@@ -803,6 +803,8 @@
     <Content Include="Areas\Admin\Views\Home\SanPhamPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Home\EditSP.cshtml" />
     <Content Include="Areas\Admin\Views\Home\SPDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ThemThongSoKT.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\SuaThongSoKT.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1673,7 +1675,7 @@
     <Content Include="templatebackend\img\ajax-loaders\ajax-loader-6.gif" />
     <Content Include="templatebackend\img\ajax-loaders\ajax-loader-7.gif" />
     <Content Include="templatebackend\img\ajax-loaders\ajax-loader-8.gif" />
-    <Content Include="templatebackend\img\favicon.ico" />
+    <Content Include="template\assets\images\favicon2.ico" />
     <Content Include="templatebackend\img\iphone-style-checkboxes\off.png" />
     <Content Include="templatebackend\img\iphone-style-checkboxes\on.png" />
     <Content Include="templatebackend\img\iphone-style-checkboxes\slider.png" />

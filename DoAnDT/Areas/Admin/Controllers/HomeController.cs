@@ -74,7 +74,7 @@ namespace DoAnDT.Areas.Admin.Controllers
         }
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult EditSP([Bind(Include = "MaSP,TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase ad, HttpPostedFileBase an, HttpPostedFileBase ak)
         {
             SanPhamModel spm = new SanPhamModel();
@@ -127,7 +127,7 @@ namespace DoAnDT.Areas.Admin.Controllers
         }
         [AuthLog(Roles = "Quản trị viên,Nhân viên")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult ThemSP([Bind(Include = "TenSP,LoaiSP,HangSX,XuatXu,GiaGoc,MoTa,SoLuong,isnew,ishot")] SanPham sanpham, HttpPostedFileBase ad, HttpPostedFileBase an, HttpPostedFileBase ak)
         {
             SanPhamModel spm = new SanPhamModel();
@@ -154,5 +154,73 @@ namespace DoAnDT.Areas.Admin.Controllers
             SanPhamModel sp = new SanPhamModel();
             return PartialView("SPDetail", sp.FindById(id));
         }
+
+        public ActionResult MultibleDel(List<string> lstdel)
+        {
+            if (lstdel == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            foreach (var item in lstdel)
+            {
+                SanPhamModel spm = new SanPhamModel();
+                DeleteAnh(spm.FindById(item).AnhDaiDien);
+                DeleteAnh(spm.FindById(item).AnhNen);
+                DeleteAnh(spm.FindById(item).AnhKhac);
+                spm.DeleteSP(item);
+            }
+            return TimSP(null, null, null);
+        }
+
+        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+        [HttpPost]
+        public ActionResult ThemThongSoKT(List<ThongSoKyThuat> lstkt)
+        {
+            if (lstkt.Count == 0)
+            {
+                return RedirectToAction("SanPham");
+            }
+            SanPhamModel spm = new SanPhamModel();
+            foreach (var item in lstkt)
+            {
+                if (!string.IsNullOrEmpty(item.ThuocTinh))
+                    spm.ThemTSKT(item);
+            }
+            return RedirectToAction("SanPham");
+        }
+
+        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+        [HttpPost]
+        public ActionResult SuaThongSoKT(List<ThongSoKyThuat> lstkt)
+        {
+            if (lstkt.Count == 0)
+            {
+                return RedirectToAction("SanPham");
+            }
+            SanPhamModel spm = new SanPhamModel();
+            spm.DelAllTSKT(lstkt[0].MaSP);
+            foreach (var item in lstkt)
+            {
+                if (!string.IsNullOrEmpty(item.ThuocTinh))
+                    spm.ThemTSKT(item);
+            }
+            return RedirectToAction("SanPham");
+        }
+
+        [AuthLog(Roles = "Quản trị viên,Nhân viên")]
+        public ActionResult SuaThongSoKT(string masp)
+        {
+            SanPhamModel spm = new SanPhamModel();
+            if (spm.GetTSKT(masp).ToList().Count == 0)
+            {
+                ThongSoKyThuat ts = new ThongSoKyThuat();
+                ts.MaSP = masp;
+                List<ThongSoKyThuat> lst = new List<ThongSoKyThuat>();
+                lst.Add(ts);
+                return View("ThemThongSoKT", lst);
+            }
+            return View("SuaThongSoKT", spm.GetTSKT(masp).ToList());
+        }
+
     }
 }

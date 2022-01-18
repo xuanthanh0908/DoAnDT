@@ -63,7 +63,7 @@
             </div>
             <div class="box-content">
 
-                @using (Html.BeginForm("ThemSP", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("ThemSP", "Home", FormMethod.Post, new {area = "Admin", enctype = "multipart/form-data" }))
                 {
 
                     <div class="form-horizontal">
