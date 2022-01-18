@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $("#basic").submit(function (event) {
 
-        var url = "/AdminB2B/GetOrders";
+        var url = "/Admin/AdminB2B/GetOrders";
         username = $("#username").val();
         password = $("#password").val();
         supp = $("#supplier_key").val();
@@ -18,7 +18,7 @@
     });
     $("#Oauth").submit(function (event) {
 
-        var url = "/AdminB2B/GetOrdersOauth";
+        var url = "/Admin/AdminB2B/GetOrdersOauth";
         access = $("#access_token").val();
         supplier = $("#supplier_key1").val();
         supp = $("#supplier_key").val();

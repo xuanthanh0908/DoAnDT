@@ -78,7 +78,7 @@
                     <ul class="right">
                         @if (User.IsInRole("Nhân viên") || User.IsInRole("Quản trị viên"))
                         {
-                            <li><a href="@Url.Action("Index", "Admin")">AdminCP</a></li>
+                            <li><a href="/Admin/Home/Index">Admin Area</a></li>
                         }
                         @if (!Request.IsAuthenticated)
                         {

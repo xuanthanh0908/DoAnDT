@@ -340,7 +340,7 @@ function timkiemajax() {
     var key = $('#inputIcon').val();
     var maloai = $('#maloaisearch').val();
     $.ajax({
-        url: "/Admin/TimSP",
+        url: "/Admin/Home/TimSP",
         type: 'GET',
         data: { key: key, maloai: maloai },
         success: function (result) {
