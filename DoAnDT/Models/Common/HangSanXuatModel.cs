@@ -17,7 +17,7 @@ namespace DoAnDT.Models
 
         internal HangSanXuat FindById(string id)
         {
-            return db.HangSanXuats.Find(id);
+            return db.HangSanXuats.Where(m =>m.HangSX == id).First();
         }
 
         internal void EditHangSX(HangSanXuat loai)

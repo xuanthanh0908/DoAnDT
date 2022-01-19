@@ -16,7 +16,7 @@ namespace DoAnDT.Models
 
         internal void EditKhuyenMai(KhuyenMai loai)
         {
-            KhuyenMai lsp = db.KhuyenMais.Find(loai.MaKM);
+            KhuyenMai lsp = db.KhuyenMais.Where(m =>m.MaKM == loai.MaKM).First();
             lsp.TenCT = loai.TenCT;
             lsp.NgayBatDau = loai.NgayBatDau;
             lsp.NgayKetThuc = loai.NgayKetThuc;

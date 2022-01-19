@@ -38,8 +38,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="@Url.Content("~/js/themxoasuaajax.js")"></script>
-    <script src="~/js/B2BAdmin.js"></script>
+
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -91,7 +90,7 @@
 
             <!-- left menu starts -->
             <div class="col-sm-2 col-lg-2">
-                <div class="sidebar-nav" >
+                <div class="sidebar-nav">
                     <div class="nav-canvas">
                         <div class="nav-sm nav nav-stacked">
                         </div>
@@ -155,7 +154,7 @@
                                 <a href="#"><i class="glyphicon glyphicon-gift red"></i><span style="font-weight: bold; color:#ff0000"> Khu vực B2B</span></a>
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
-                                    <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quan lí thanh toán</a></li>
+                                    <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quản lí thanh toán</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -229,6 +228,12 @@
             </p>
         </footer>
     </div><!--/.fluid-container-->
-
+    <script src="@Url.Content("~/js/themxoasuaajax.js")"></script>
+    <script src="@Url.Content("~/js/B2BAdmin.js")"></script>
 </body>
 </html>
+<style>
+    .main-menu li a span{
+        padding: 10px
+    }
+</style>

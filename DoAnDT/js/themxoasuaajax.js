@@ -369,7 +369,7 @@ function timkiemkhachhang() {
 function timkiemloaiSP() {
     var key = $('#inputIcon').val();
     $.ajax({
-        url: "/LoaiSP/TimLoaiSP",
+        url: "/Admin/LoaiSP/TimLoaiSP",
         type: 'GET',
         data: { key: key },
         success: function (result) {
@@ -381,7 +381,7 @@ function timkiemloaiSP() {
 function timkiemHangSX() {
     var key = $('#inputIcon').val();
     $.ajax({
-        url: "/HangSX/TimHangSX",
+        url: "/Admin/HangSX/TimHangSX",
         type: 'GET',
         data: { key: key },
         success: function (result) {
@@ -395,7 +395,7 @@ function timkiemKhuyenMai() {
     var start = $('#startday').val();
     var end = $('#endday').val();
     $.ajax({
-        url: "/KhuyenMai/TimKhuyenMai",
+        url: "/Admin/KhuyenMai/TimKhuyenMai",
         type: 'GET',
         data: { key: key, start: start, end: end },
         success: function (result) {
