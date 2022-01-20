@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchAction>None</DockerLaunchAction>
     <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -306,11 +305,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="App_Start\AuthenticationFailureResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -321,6 +315,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Trackingactionfilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\AdminB2B\AdminB2BAreaRegistration.cs" />
+    <Compile Include="Areas\AdminB2B\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AdminB2B\Controllers\HopDongController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HangSXController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -328,16 +325,19 @@
     <Compile Include="Areas\Admin\Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\GiaoDienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
     <Compile Include="Controllers\XuligiohangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\B2B\Classsupport.cs" />
+    <Compile Include="Models\B2B\ConfigAPIModel.cs" />
     <Compile Include="Models\B2B\DangkisanphamModel.cs" />
     <Compile Include="Models\B2B\DoitacModel.cs" />
     <Compile Include="Models\B2B\DSDangKyModel.cs" />
@@ -822,6 +822,23 @@
     <Content Include="Areas\Admin\Views\KhuyenMai\KhuyenMaiDetail.cshtml" />
     <Content Include="Areas\Admin\Views\KhuyenMai\SuaSPKhuyenMai.cshtml" />
     <Content Include="Areas\Admin\Views\KhuyenMai\KhuyenMaiPostView.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\web.config" />
+    <Content Include="Areas\AdminB2B\Views\Home\Taohopdong.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\GetNhaDoiTac.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\DoitacPartial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\Laysoluongton.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\GetAccesstoken.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\XemXacNhanGiaoHang.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\BasicParitial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\BasicOauthParitial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\ConfigAPI.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\GetOrders.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\Home\Theodoithanhtoan.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\HopDong\HopDongB2BPartial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\HopDong\HopDongPartial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\HopDong\TTGiaoHangPartial.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\HopDong\Index.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\HopDong\TinhTrangGiaoHang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2200,11 +2217,17 @@
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Donhang\Index.cshtml" />
+    <Content Include="Views\Donhang\DonHangPartial.cshtml" />
+    <Content Include="Views\Donhang\Chitietdonhang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminB2B\Data\" />
+    <Folder Include="Areas\AdminB2B\Views\Shared\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\ThongKe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2251,7 +2274,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.11.1\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
   </Target>

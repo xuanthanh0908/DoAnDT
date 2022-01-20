@@ -15,7 +15,7 @@
                 }
             </div>
 
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("EditInfo", "GiaoDien", FormMethod.Post, new { area = "", enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-horizontal">
@@ -24,7 +24,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-3" })
                             <div class="col-md-5">
-                                @Html.TextBoxFor(model => model.Email, new { @class = "le-input", disabled = "disabled", @readonly="readonly" })
+                                @Html.TextBoxFor(model => model.Email, new { @class = "le-input", disabled = "disabled", @readonly = "readonly" })
                                 @Html.ValidationMessageFor(model => model.Email)
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                     @Html.LabelFor(model => model.Avatar, new { @class = "control-label" })
 
                     @*@Html.EditorFor(model => model.Avatar)
-                    @Html.ValidationMessageFor(model => model.Avatar)*@
+                @Html.ValidationMessageFor(model => model.Avatar)*@
                     <div style="text-align:center; margin:20px">
                         <img src="@Url.Content("~/images/avatars/")@Model.Avatar" style="width: 256px; height: 256px; -webkit-border-radius: 123px; /* Saf3+, Chrome */ border-radius: 123px; /* Opera 10.5, IE 9 */ /*-moz-border-radius: 30px;  Disabled for FF1+ */ ">
                     </div>
