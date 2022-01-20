@@ -59,9 +59,9 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="@Url.Action("EditInfo", "Account")">Profile</a></li>
+                    <li><a href="@Url.Action("EditInfo", "Account",new { area = ""})">Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="@Url.Action("LogOut", "Account")">Logout</a></li>
+                    <li><a href="@Url.Action("LogOut", "Account", new { area = ""})">Logout</a></li>
                 </ul>
             </div>
             <!-- user dropdown ends -->
@@ -103,16 +103,16 @@
                                 <ul class="nav nav-pills nav-stacked">
                                     <li><a href="/Admin/Home/SanPham">Quản lý sản phẩm</a></li>
                                     <li><a href="/Admin/LoaiSP/Index">Quản lý loại sản phẩm</a></li>
-                                    <li><a href="@Url.Action("Index","HangSX")">Quản lý hãng sản xuất</a></li>
-                                    <li><a href="@Url.Action("Index","KhuyenMai")">Quản lý khuyến mãi</a></li>
+                                    <li><a href="@Url.Action("Index","HangSX",new { area = "Admin"})">Quản lý hãng sản xuất</a></li>
+                                    <li><a href="@Url.Action("Index","KhuyenMai", new { area = "Admin"})">Quản lý khuyến mãi</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-user red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thành viên</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","Account")">Danh sách ngươi dùng</a></li>
-                                    <li><a href="@Url.Action("Index","Roles")">Danh sách chức vụ</a></li>
+                                    <li><a href="@Url.Action("Index","Account", new { area = ""})">Danh sách ngươi dùng</a></li>
+                                    <li><a href="@Url.Action("Index","Roles",new { area = ""})">Danh sách chức vụ</a></li>
                                 </ul>
                             </li>
 
@@ -130,37 +130,37 @@
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-briefcase red"></i><span style="font-weight: bold; color: #ff0000;">Đơn hàng - Hóa đơn</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index","Donhang")">Đơn hàng của khách</a></li>
-                                    <li><a href="@Url.Action("TinhTrangGiaoHang","HopDong")">Đơn hàng của đối tác</a></li>
+                                    <li><a href="@Url.Action("Index","Donhang", new { area = ""})">Đơn hàng của khách</a></li>
+                                    <li><a href="@Url.Action("TinhTrangGiaoHang","HopDong", new { area = "AdminB2B"})">Đơn hàng của đối tác</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-heart red"></i><span style="font-weight: bold; color: #ff0000;">Chăm sóc khách hàng</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("Index", "Comment")">Bình luận của khách</a></li>
-                                    <li><a href="@Url.Action("Index", "Comment")">Tư vấn trực tuyến</a></li>
+                                    <li><a href="/Comment/Index">Bình luận của khách</a></li>
+                                    <li><a href="/Comment/Index">Tư vấn trực tuyến</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-list-alt red"></i><span style="font-weight: bold; color: #ff0000;"> Khu vực thống kê</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe")">Doanh thu hàng tháng</a></li>
+                                    <li><a href="@Url.Action("ThongKeDoanhThu","ThongKe", new { area = ""})">Doanh thu hàng tháng</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <!--Them B2B-->
                                 <a href="#"><i class="glyphicon glyphicon-gift red"></i><span style="font-weight: bold; color:#ff0000"> Khu vực B2B</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("GetNhaDoiTac", "AdminB2B")">Danh sách các Nhà Đối Tác</a></li>
-                                    <li><a href="@Url.Action("Theodoithanhtoan", "AdminB2B")">Quản lí thanh toán</a></li>
+                                    <li><a href="@Url.Action("GetNhaDoiTac", "Home",new { area = "AdminB2B"})">Danh sách các Nhà Đối Tác</a></li>
+                                    <li><a href="@Url.Action("Theodoithanhtoan", "Home",new { area = "AdminB2B"})">Quản lí thanh toán</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="glyphicon glyphicon-cog red"></i><span style="font-weight: bold; color: #ff0000;">Cài đặt</span></a>
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="@Url.Action("General","GiaoDien")">Cài đặt thông tin web</a></li>
+                                    <li><a href="@Url.Action("General","GiaoDien", new { area = ""})">Cài đặt thông tin web</a></li>
                                     <li><a href="#">Cài đặt giao diện</a></li>
                                     <li><a href="#">Khác</a></li>
                                 </ul>

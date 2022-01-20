@@ -330,6 +330,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GiaoDienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
@@ -2200,6 +2201,14 @@
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\UserDetail.cshtml" />
+    <Content Include="Views\Account\UserList.cshtml" />
+    <Content Include="Views\Account\ThongBao.cshtml" />
+    <Content Include="Views\Account\EditNCCInfo.cshtml" />
+    <Content Include="Views\Roles\CreateRole.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Rolelist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

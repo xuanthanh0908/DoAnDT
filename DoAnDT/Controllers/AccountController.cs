@@ -157,7 +157,7 @@ namespace DoAnDT.Controllers
         {
             UserModel us = new UserModel();
             us.SendMailConfirm(p, Url.Action("ConfirmMail", "Account", new { id = p }, this.Request.Url.Scheme));
-            ////https://account/ConfirmMail/dbaf5ac1-9ac3-4fbb-a5a0-891ea80cd0e7
+            ////http://account/ConfirmMail/dbaf5ac1-9ac3-4fbb-a5a0-891ea80cd0e7
         }
 
         //
