@@ -328,6 +328,7 @@
     <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\GiaoDienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
@@ -2220,6 +2221,10 @@
     <Content Include="Views\Donhang\Index.cshtml" />
     <Content Include="Views\Donhang\DonHangPartial.cshtml" />
     <Content Include="Views\Donhang\Chitietdonhang.cshtml" />
+    <Content Include="Views\ThongKe\ThongKeDoanhThu.cshtml" />
+    <Content Include="Views\ThongKe\TheoTime.cshtml" />
+    <Content Include="Views\ThongKe\TheoTiTrong.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2227,7 +2232,7 @@
     <Folder Include="Areas\AdminB2B\Views\Shared\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\ThongKe\" />
+    <Folder Include="Views\Roles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
