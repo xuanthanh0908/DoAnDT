@@ -217,7 +217,7 @@ function timkiemhopdong() {
     var tensp = $('#tensp').val();
     var loaihd = $('#loaihd').val();
     $.ajax({
-        url: "/HopDong/TimHopDong",
+        url: "/AdminB2B/HopDong/TimHopDong",
         type: 'GET',
         data: { key: key, tensp: tensp, loaihd: loaihd },
         success: function (result) {
@@ -232,7 +232,7 @@ function timkiemhopdong1() {
     var loaihd = $('#loaihd').val();
     var tt = $('#ttrang').val();
     $.ajax({
-        url: "/HopDong/TTGiaoHang",
+        url: "/AdminB2B/HopDong/TTGiaoHang",
         type: 'get',
         data: { key: key, tensp: tensp, loaihd: loaihd, tt:tt },
         success: function (result) {
@@ -313,7 +313,7 @@ function timkiemDSSanPhamKhuyenMai(value) {
     var key = $('#inputIcon1').val();
     var maloai = $('#maloaisearch1').val();
     $.ajax({
-        url: "/KhuyenMai/DSSanPhamKhuyenMai",
+        url: "/Admin/KhuyenMai/DSSanPhamKhuyenMai",
         type: 'GET',
         data: { key: key, maloai: maloai, makm: value.toString() },
         success: function (result) {
@@ -326,7 +326,7 @@ function timkiemDSSanPham(value) {
     var key = $('#inputIcon').val();
     var maloai = $('#maloaisearch').val();
     $.ajax({
-        url: "/KhuyenMai/DSSanPham",
+        url: "/Admin/KhuyenMai/DSSanPham",
         type: 'GET',
         data: { key: key, maloai: maloai, makm: value.toString() },
         success: function (result) {
@@ -523,7 +523,7 @@ function SetStatus(Url) {
 
 function thanhtoanB2B(param) {
     $.ajax({
-        url: "/HopDong/Xacnhanthanhtoan",
+        url: "/AdminB2B/HopDong/Xacnhanthanhtoan",
         type: "GET",
         data: { MaHD: param },
         success: function (result) {
@@ -537,7 +537,7 @@ function timkiemhopdongB2B() {
     var tensp = $('#tensp').val();
     var loaihd = $('#loaihd').val();
     $.ajax({
-        url: "/HopDong/TimHopDongB2B",
+        url: "/AdminB2B/HopDong/TimHopDongB2B",
         type: 'GET',
         data: { key: key, tensp: tensp, loaihd: loaihd },
         success: function (result) {

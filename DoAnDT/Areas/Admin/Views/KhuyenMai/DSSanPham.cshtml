@@ -13,7 +13,7 @@
             $.ajax({
                 url: "/Admin/KhuyenMai/ThemSP1KhuyenMai",
                 type: 'POST',
-                data: { MaKM: val1, MaSP: val2, MoTa: mota, GiamGia: giamgia },
+                data: { MaKM: val1, MaSP: val2, GiamGia: giamgia, MoTa: mota },
                 success: function (result) {
                     $('.Ajax-Table').html(result);
                     timkiemDSSanPhamKhuyenMai(val1);

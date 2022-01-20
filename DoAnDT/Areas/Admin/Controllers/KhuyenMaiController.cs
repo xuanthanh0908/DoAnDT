@@ -178,6 +178,7 @@ namespace DoAnDT.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult ThemSP1KhuyenMai([Bind(Include = "MaKM,MaSP,MoTa,GiamGia")] SanPhamKhuyenMai spkm)
         {
             KhuyenMaiModel spm = new KhuyenMaiModel();

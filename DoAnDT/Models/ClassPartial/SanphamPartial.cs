@@ -24,7 +24,6 @@ namespace DoAnDT.Models
     [MetadataTypeAttribute(typeof(HopDongNCC.Metadata))]
     public partial class HopDongNCC
     {
-        public string TenNCC { get; set; }
         internal sealed class Metadata
         {
             [Range(1,999999999,ErrorMessage="Mời bạn nhập trong khoảng 1 -> 999999999")]

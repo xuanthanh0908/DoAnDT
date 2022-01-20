@@ -24,7 +24,6 @@ namespace DoAnDT.Controllers
             List<GiaoDien> model = dd.GetDD().ToList();
             return View(model);
         }
-
         public ActionResult SlideShowView()
         {
             KhuyenMaiModel km = new KhuyenMaiModel();
