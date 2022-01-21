@@ -77,7 +77,35 @@ namespace DoAnDT.Models
                 return false;
             }
         }
-
+        public int TotalSub()
+        {
+            DBDTConnect db = new DBDTConnect();
+            List<AspNetUser> lst = db.AspNetUsers.ToList();
+            return lst.Count;
+        }
+        public int TotalCmt()
+        {
+            DBDTConnect db = new DBDTConnect();
+            List<BinhLuan> lst = db.BinhLuans.ToList();
+            return lst.Count;
+        }
+        public int TotalOrder()
+        {
+            DBDTConnect db = new DBDTConnect();
+            List<DonHangKH> lst = db.DonHangKHs.Where(m => m.TinhTrangDH == 3).ToList();
+            return lst.Count;
+        }
+        public Double TotalSales()
+        {
+            DBDTConnect db = new DBDTConnect();
+            Double total = 0;
+            List<DonHangKH> lst = db.DonHangKHs.Where(m => m.TinhTrangDH == 3).ToList();
+            foreach(var item in lst)
+            {
+                total += Double.Parse(item.Tongtien.ToString());
+            }
+            return total;
+        }
         public AspNetUser Xemttnguoidung(string id)
         {
             using (DBDTConnect db = new DBDTConnect())
@@ -240,5 +268,6 @@ namespace DoAnDT.Models
                     select new { TenSP = gro.Key, SL = gro.Sum(r => r.SoLuong) };
             return s;
         }
+
     }
 }

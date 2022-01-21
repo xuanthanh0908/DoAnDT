@@ -37,7 +37,7 @@ namespace DoAnDT.Models
         public double Tinhtongtiensanpham()
         {
             double count = 0;
-            foreach (var temp in Cart)
+            foreach(var temp in Cart)
             {
                 count += temp.Thanhtien;
             }

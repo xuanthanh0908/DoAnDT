@@ -481,7 +481,7 @@ namespace DoAnDT.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        
         public ActionResult EditInfo()
         {
             UserModel user = new UserModel();
@@ -498,19 +498,6 @@ namespace DoAnDT.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditNCCInfo([Bind(Include = "MaNCC,TenNCC,DiaChi,SDT_NCC,Email")] EditInfo2B2ViewModel info)
-        {
-            if (ModelState.IsValid)
-            {
-                NhaCungCapModel ncc = new NhaCungCapModel();
-                ncc.UpdateInfo(info);
-                ViewBag.StatusMessage = "Cập nhật thông tin thành công";
-            }
-            return View(info);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult EditInfo([Bind(Include = "Email,DienThoai,CMND,HoTen,NgaySinh,GioiTinh,DiaChi")] EditInfoModel info)
         {
             if (ModelState.IsValid)
@@ -522,6 +509,18 @@ namespace DoAnDT.Controllers
             }
             return View(info);
         }
+        [ValidateAntiForgeryToken]
+        public ActionResult EditNCCInfo([Bind(Include = "MaNCC,TenNCC,DiaChi,SDT_NCC,Email")] EditInfo2B2ViewModel info)
+        {
+            if (ModelState.IsValid)
+            {
+                NhaCungCapModel ncc = new NhaCungCapModel();
+                ncc.UpdateInfo(info);
+                ViewBag.StatusMessage = "Cập nhật thông tin thành công";
+            }
+            return View(info);
+        }
+
 
         // This action handles the form POST and the upload
         [HttpPost]
