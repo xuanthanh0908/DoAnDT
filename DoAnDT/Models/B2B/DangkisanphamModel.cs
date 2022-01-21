@@ -69,7 +69,7 @@ namespace DoAnDT.Models
                 var ds =  db.DanhsachdangkisanphamNCCs.Where(m => m.MaSPCanMua == IDSPCM).ToList();
                 foreach(var temp in ds)
                 {
-                    temp.TenNCC = (from p in db.NhaCungCaps where p.MaNCC == temp.MaNCC select p.TenNCC).FirstOrDefault();
+                    temp.NhaCungCap.TenNCC = (from p in db.NhaCungCaps where p.MaNCC == temp.MaNCC select p.TenNCC).FirstOrDefault();
                 }
                 return ds;
             }

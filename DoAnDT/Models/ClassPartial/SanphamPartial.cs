@@ -19,7 +19,7 @@ namespace DoAnDT.Models
 
     public partial class DanhsachdangkisanphamNCC
     {
-        public string TenNCC { get; set; }
+       
     }
     [MetadataTypeAttribute(typeof(HopDongNCC.Metadata))]
     public partial class HopDongNCC

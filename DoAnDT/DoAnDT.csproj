@@ -316,13 +316,16 @@
     <Compile Include="App_Start\Trackingactionfilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\AdminB2B\AdminB2BAreaRegistration.cs" />
+    <Compile Include="Areas\AdminB2B\Controllers\DanhSachDKController.cs" />
     <Compile Include="Areas\AdminB2B\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminB2B\Controllers\HopDongController.cs" />
+    <Compile Include="Areas\AdminB2B\Controllers\SanPhamCanMuaController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HangSXController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhuyenMaiController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSPController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaCungCapController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DonhangController.cs" />
@@ -840,6 +843,8 @@
     <Content Include="Areas\AdminB2B\Views\HopDong\TTGiaoHangPartial.cshtml" />
     <Content Include="Areas\AdminB2B\Views\HopDong\Index.cshtml" />
     <Content Include="Areas\AdminB2B\Views\HopDong\TinhTrangGiaoHang.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\DanhSachDK\Index.cshtml" />
+    <Content Include="Areas\AdminB2B\Views\DanhSachDK\DSDKPartial.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2218,6 +2223,13 @@
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="templatebackend\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Rolelist.cshtml" />
+    <Content Include="Views\NhaCungCap\Index.cshtml" />
+    <Content Include="Views\NhaCungCap\NCCPartial.cshtml" />
+    <Content Include="Views\SanPhamCanMua\EditSPCM.cshtml" />
+    <Content Include="Views\SanPhamCanMua\Index.cshtml" />
+    <Content Include="Views\SanPhamCanMua\SPCMPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2225,7 +2237,6 @@
     <Folder Include="Areas\AdminB2B\Views\Shared\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Roles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
