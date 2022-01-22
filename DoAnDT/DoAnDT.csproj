@@ -327,6 +327,7 @@
     <Compile Include="Areas\Admin\Controllers\LoaiSPController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaCungCapController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DonhangController.cs" />
     <Compile Include="Controllers\GiaoDienController.cs" />
@@ -2230,6 +2231,18 @@
     <Content Include="Views\SanPhamCanMua\EditSPCM.cshtml" />
     <Content Include="Views\SanPhamCanMua\Index.cshtml" />
     <Content Include="Views\SanPhamCanMua\SPCMPartial.cshtml" />
+    <Content Include="Views\Auction\ChitietAuction.cshtml" />
+    <Content Include="Views\Auction\ChitietSanphamAuction.cshtml" />
+    <Content Include="Views\Auction\Danhsachcanmua.cshtml" />
+    <Content Include="Views\Auction\DanhsachNCCDK.cshtml" />
+    <Content Include="Views\Auction\Index.cshtml" />
+    <Content Include="Views\Auction\ModalRegister.cshtml" />
+    <Content Include="Views\Auction\ProductFilterB2B.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\ThongBao.cshtml" />
+    <Content Include="Views\Account\UserDetail.cshtml" />
+    <Content Include="Views\Account\UserList.cshtml" />
+    <Content Include="Views\Account\EditNCCInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

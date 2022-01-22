@@ -1,5 +1,7 @@
-﻿@{ ViewBag.Title = "EditNCCInfo";
-Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml"; }
+﻿@{
+    ViewBag.Title = "Chỉnh sửa thông tin nhà cung cấp";
+    Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml";
+}
 
 @model DoAnDT.Models.EditInfo2B2ViewModel
 
@@ -11,12 +13,13 @@ Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml"; }
             <div id="StatupMessage">
                 @if (ViewBag.StatusMessage != null)
                 {
-    <h5>@ViewBag.StatusMessage</h5>}
+                    <h5>@ViewBag.StatusMessage</h5>/// amzing chưa @@
+                }
             </div>
 
-            @using (Html.BeginForm("EditNCCInfo", "Account", FormMethod.Post))
+            @using (Html.BeginForm("EditNCCInfo", "Account",FormMethod.Post))
             {
-@Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
                 <div class="form-horizontal">
                     @Html.ValidationSummary(true)
                     <div class="col-md-12">
@@ -59,7 +62,8 @@ Layout = "~/Views/Shared/_LayoutFrontEnd.cshtml"; }
                             </div>
                         </div>
                     </div>
-                </div>            }
+                </div>
+            }
         </div>
 
     </div>
