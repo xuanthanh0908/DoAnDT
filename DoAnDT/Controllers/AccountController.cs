@@ -510,6 +510,7 @@ namespace DoAnDT.Controllers
             return View(info);
         }
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult EditNCCInfo([Bind(Include = "MaNCC,TenNCC,DiaChi,SDT_NCC,Email")] EditInfo2B2ViewModel info)
         {
             if (ModelState.IsValid)
