@@ -1,9 +1,11 @@
 ﻿using DoAnDT.Models;
+using DoAnDT.Models.NganLuongAPI;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace DoAnDT.Controllers
@@ -11,7 +13,11 @@ namespace DoAnDT.Controllers
     public class HomeController : Controller
     {
         public static List<Thanhviennhom> Ds_Group;
-        private static DBDTConnect db = new DBDTConnect();
+        private string MerchantId = "46838";
+        private string MerchantPassword = "b2d2112d7533f970d70c2e13842e215a";
+        private string MerchantEmail = "ngoctoan89@gmail.com";
+        private string CurrentLink = WebConfigurationManager.AppSettings["CurrentLink"];
+        DonhangKHModel dhmodel = new DonhangKHModel();
         public ActionResult Index()
         {
             ManagerObiect.getIntance();
@@ -42,7 +48,7 @@ namespace DoAnDT.Controllers
             return View(ManagerObiect.getIntance().giohang);
         }
 
-       /* [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]*/
+        [AuthLog(Roles = "Quản trị viên,Nhân viên,Khách hàng")]
         //Đơn hàng
         public ActionResult Xemdonhang(string maKH)
         {
@@ -90,15 +96,51 @@ namespace DoAnDT.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                DonhangKHModel dhmodel = new DonhangKHModel();
-                dhmodel.Luudonhang(dh, User.Identity.GetUserId(), ManagerObiect.getIntance().giohang);
-                return RedirectToAction("Index", "Home");
+                var giohang = ManagerObiect.getIntance().giohang;
+                string ma = dhmodel.RandomMa();
+                if (dh.PaymentStatus == "CASH")
+                {
+                    dhmodel.Luudonhang(dh, User.Identity.GetUserId(), giohang, ma);
+                    return RedirectToAction("Index", "Home");
+                }
+                else 
+                {
+                    RequestInfo info = new RequestInfo();
+                    info.Merchant_id = MerchantId;
+                    info.Merchant_password = MerchantPassword;
+                    info.Receiver_email = MerchantEmail;
+
+                    info.cur_code = "vnd";
+                    info.bank_code = dh.bankcode;
+
+                    info.Order_code = ma;
+                    info.Total_amount = giohang.TinhtongtienCart().ToString();
+                    info.fee_shipping = "0";
+                    info.Discount_amount = "0";
+                    info.order_description = "Thanh toán đơn hàng tại Thành Vân Shop";
+                    info.return_url = CurrentLink + "/Home/ConfirmOrder/"+ma;
+                    info.cancel_url = CurrentLink + "/Home/CancelOrder/"+ma;
+
+                    info.Buyer_fullname = dh.buyer;
+                    info.Buyer_email = "vovanvainoi@gmail.com";
+                    info.Buyer_mobile = dh.seller;
+
+                    APICheckoutV3 objNLChecout = new APICheckoutV3();
+                    ResponseInfo result = objNLChecout.GetUrlCheckout(info, dh.PaymentStatus);
+                    if (result.Error_code == "00")
+                    {
+                        dhmodel.Luudonhang(dh, User.Identity.GetUserId(), giohang, ma);
+                        return Redirect(result.Checkout_url);
+                    }
+                    else  return Content("<script language='javascript' type='text/javascript'>alert('"+ result.Description + "');</script>");
+                }
             }
             else
             {
                 return RedirectToAction("Checkout", "Home");
             }
         }
+
         public ActionResult MainMenu()
         {
             MainMenuModel mnmodel = new MainMenuModel();
@@ -153,6 +195,39 @@ namespace DoAnDT.Controllers
         public ActionResult SPMoiXem()
         {
             return PartialView("_RecentlyViewPartial", ManagerObiect.getIntance().Laydanhsachsanphammoixem());
+        }
+        public ActionResult ConfirmOrder(int id)
+        {
+            string token = Request["token"];
+            RequestCheckOrder info = new RequestCheckOrder();
+            info.Merchant_id = MerchantId;
+            info.Merchant_password = MerchantPassword;
+            info.Token = token;
+            APICheckoutV3 objNLChecout = new APICheckoutV3();
+            ResponseCheckOrder result = objNLChecout.GetTransactionDetail(info);
+            if (result.errorCode == "00")
+            {
+                using (DBDTConnect db = new DBDTConnect())
+                {
+                    dhmodel.UpdateTinhTrang(id.ToString(), 5);
+                }
+                ViewBag.IsSuccess = true;
+                ViewBag.Result = "Thanh toán thành công. Chúng tôi sẽ liên hệ lại sớm nhất.";
+            }
+            else
+            {
+                ViewBag.IsSuccess = false;
+                ViewBag.Result = "Có lỗi xảy ra. Vui lòng liên hệ admin.";
+            }
+            return View();
+        }
+        public ActionResult CancelOrder(int id)
+        {
+            using (DBDTConnect db = new DBDTConnect())
+            {
+                dhmodel.UpdateTinhTrang(id.ToString(),4);
+            }
+            return View();
         }
     }
 }

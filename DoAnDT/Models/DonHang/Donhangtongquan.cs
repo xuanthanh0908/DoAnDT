@@ -17,5 +17,7 @@ namespace DoAnDT.Models
         public string buyer { get; set; }
         public string seller { get; set; }
         public string Note { get; set; }
+        public string PaymentStatus { get; set; }
+        public string bankcode { get; set; }
     }
 }

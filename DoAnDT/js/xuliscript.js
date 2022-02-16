@@ -14,6 +14,7 @@ $(document).ready(function () {
     
 
 });
+
     function Addcart(value, sl) {
         if (sl == 0) {
             alert("Xác nhận");

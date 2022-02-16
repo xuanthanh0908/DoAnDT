@@ -386,6 +386,7 @@
     <Compile Include="Models\KhuyenMai.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\NganLuongAPI\APICheckoutV3.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\Oauth.cs" />
     <Compile Include="Models\SanPham.cs" />
@@ -846,6 +847,7 @@
     <Content Include="Areas\AdminB2B\Views\HopDong\TinhTrangGiaoHang.cshtml" />
     <Content Include="Areas\AdminB2B\Views\DanhSachDK\Index.cshtml" />
     <Content Include="Areas\AdminB2B\Views\DanhSachDK\DSDKPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2009,7 +2011,6 @@
     <Content Include="Views\Home\_MiniBannerPartial.cshtml" />
     <Content Include="Views\Home\_ProductTabLoadMorePartial.cshtml" />
     <Content Include="Views\Home\_RecentlyViewPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_LayoutB2B.cshtml" />
     <Content Include="Views\Shared\_LayoutStock.cshtml" />
@@ -2243,6 +2244,14 @@
     <Content Include="Views\Account\UserDetail.cshtml" />
     <Content Include="Views\Account\UserList.cshtml" />
     <Content Include="Views\Account\EditNCCInfo.cshtml" />
+    <Content Include="Views\Home\ConfirmOrder.cshtml" />
+    <Content Include="Views\Home\CancelOrder.cshtml" />
+    <Content Include="Views\ThongKe\TheoTime.cshtml" />
+    <Content Include="Views\ThongKe\TheoTiTrong.cshtml" />
+    <Content Include="Views\ThongKe\ThongKeDoanhThu.cshtml" />
+    <Content Include="Views\Donhang\Chitietdonhang.cshtml" />
+    <Content Include="Views\Donhang\DonHangPartial.cshtml" />
+    <Content Include="Views\Donhang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

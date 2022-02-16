@@ -58,6 +58,10 @@ namespace DoAnDT.Models
                     {
                         return "Đã hủy";
                     }
+                case 5:
+                    {
+                        return "Đã thanh toán";
+                    }
             }
             return "Đang duyệt";
         }
@@ -114,16 +118,15 @@ namespace DoAnDT.Models
                 return users;
             }
         }
-        public void Luudonhang(Donhangtongquan a, string maKH, Giohang giohang)
+        public void Luudonhang(Donhangtongquan a, string maKH, Giohang giohang,string ma)
         {
             try
             {
                 using (DBDTConnect db = new DBDTConnect())
                 {
                     DonHangKH dhkh = new DonHangKH();
-                    dhkh.MaDH = RandomMa();
+                    dhkh.MaDH = ma;
                     dhkh.MaKH = maKH;
-
                     dhkh.Diachi = a.address;
                     dhkh.Dienthoai = a.phoneNumber;
                     dhkh.Ghichu = a.Note;
@@ -153,7 +156,6 @@ namespace DoAnDT.Models
                     ThanhTien = (decimal)temp.Thanhtien
                 };
                 db.ChiTietDonHangs.Add(chiTiet);
-
             }
             db.SaveChanges();
         }

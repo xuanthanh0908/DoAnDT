@@ -24,7 +24,7 @@
             <div class="title">
                 <a href="@Url.Action("Index", "SanPham", new { id = @Model.MaSP })">@Model.TenSP</a>
             </div>
-            <div class="brand">@Model.HangSanXuat.TenHang</div>
+            <div class="brand">@Model.HangSX</div>
         </div>
         <div class="prices">
             @if(Model.GiaTien < Model.GiaGoc){  <div class="price-prev">@string.Format("{0:0,0}", Model.GiaGoc)  VNĐ</div> }
